@@ -6,7 +6,7 @@
 #                                                                                       #
 #           author: t. isobe (tisobe@cfa.harvard.edu)                                   #
 #                                                                                       #
-#           last updated: Oct 07, 2014                                                  #
+#           last updated: Feb 04, 2014                                                  #
 #                                                                                       #
 #########################################################################################
 
@@ -35,6 +35,9 @@ sys.path.append(mta_dir)
 import convertTimeFormat    as tcnv
 import mta_common_functions as mcf
 
+dat_dir = '/data/mta/Script/Month/FOCAL/Data/'
+tdata   = dat_dir + 'this_month_data'
+fdata   = dat_dir + 'focal_temp_data'
 
 #-------------------------------------------------------------------------------
 #-- plot_data  plotting moving aerage of peak temperature and peak width     ---
@@ -51,7 +54,7 @@ def plot_data():
 #
 #--- read data
 #
-    f    = open('./focal_temp', 'r')
+    f    = open(fdata, 'r')
     data = [line.strip() for line in f.readlines()]
     f.close()
 
@@ -137,7 +140,7 @@ def plot_data():
 #
 #--- print out the plot
 #
-    outname = 'focal_temp_plot.png'
+    outname = './Plots/focal_temp_plot.png'
     plt.savefig(outname, format='png', dpi=300)
 
     plt.close('all')
@@ -224,7 +227,7 @@ def find_average():
     output: mean and sd of peak height and width
     """
 
-    f    = open('./this_month_data', 'r')
+    f    = open(tdata, 'r')
     data = [line.strip() for line in f.readlines()]
     f.close()
 
@@ -242,8 +245,14 @@ def find_average():
     wavg = numpy.mean(width)
     wsig = numpy.std(width)
 
-    print "This month's average focal temp: " + str(round(favg,4)) + ' +/- ' + str(round(fsig,4))
-    print "This month's average peak width: " + str(round(wavg,4)) + ' +/- ' + str(round(wsig,4))
+    line =  "This month's average focal temp: " + str(round(favg,4)) + ' +/- ' + str(round(fsig,4)) + '\n'
+    line = line +  "This month's average peak width: " + str(round(wavg,4)) + ' +/- ' + str(round(wsig,4)) + '\n'
+
+    out  = '/data/mta/Script/Month/FOCAL/Plots/month_avg'
+    fo   = open(out, 'w')
+    fo.write(line)
+    fo.close()
+
 
 #--------------------------------------------------------------------
 

@@ -7,7 +7,7 @@
 #                                                                                           #
 #               author: t. isobe (tisobe@cfa.harvard.edu)                                   #
 #                                                                                           #
-#               last update: Feb 03, 2016                                                   #
+#               last update: Feb 04, 2016                                                   #
 #                                                                                           #
 #############################################################################################
 
@@ -60,6 +60,10 @@ zspace = '/tmp/zspace' + str(rtail)
 BTFMT    = '%m/%d/%y,%H:%M:%S'
 basetime = datetime.strptime('01/01/98,00:00:00', BTFMT)
 
+dat_dir  = '/data/mta/Script/Month/FOCAL/Data/'
+tdata = dat_dir + 'this_month_data'
+fdata = dat_dir + 'focal_temp_data'
+
 #-----------------------------------------------------------------------------------------------
 #-- find_focal_temp_peaks: estimate focal temperature peak position, temperature, and the peak width
 #-----------------------------------------------------------------------------------------------
@@ -90,7 +94,7 @@ def find_focal_temp_peaks(year='', month=''):
 #
 #--- print out the data
 #
-    fo    = open('/data/mta/Script/Month/FOCAL/this_month_data','w')
+    fo    = open(tdata,'w')
     for ent in peak_list:
         vtime = float(ent[0])
         ltime = str(vtime)
@@ -102,6 +106,15 @@ def find_focal_temp_peaks(year='', month=''):
         line = str(year) + '\t\t' + str(ltime) + '\t\t' + str(ent[1]) + '\t\t' + str(ent[2]) + '\n'
         fo.write(line)
     fo.close()
+#
+#-- make a backup before adding this month's data to full data set
+#
+    bdata = fdata + '~'
+    cmd = 'cp ' = fdata + ' ' + bdata
+    os.system(cmd)
+
+    cmd = 'cat ' + tdata + '>> ' +  fdata 
+    os.system(cmd)
     
 #-----------------------------------------------------------------------------------------------
 #-- find_time_span: find time span for Thu to Thu nearest to a given date                     --

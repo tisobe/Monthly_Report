@@ -1,0 +1,5 @@
+setenv PYTHONPATH "/proj/sot/ska/arch/x86_64-linux_CentOS-5/lib/python2.7/site-packages"
+/data/mta/Script/Month/FOCAL/Scripts/create_monthly_erand_plot.py  
+/data/mta/Script/Month/FOCAL/Scripts/find_focal_temp_peaks_monthly.py  
+/data/mta/Script/Month/FOCAL/Scripts/plot_focal_temperature.py
+
