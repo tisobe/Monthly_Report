@@ -6,7 +6,7 @@
 #                                                                                                           #
 #           author: t. isobe (tisobe@cfa.harvard.edu)                                                       #
 #                                                                                                           #
-#           Last Update: Feb 04, 2016                                                                       #
+#           Last Update: Mar 03, 2016                                                                       #
 #                                                                                                           #
 #############################################################################################################
 
@@ -117,7 +117,7 @@ def create_monthly_focal_temp(year, month, eyear, emonth):
 #
     if mon == 2:
         dlist = [10, 20, 28]
-        if tcnv.isLeap(year) == 1:
+        if tcnv.isLeapYear(year) == 1:
             dlist = [ 10, 20, 29]
     else:
         dlist  = [10, 20, 30]

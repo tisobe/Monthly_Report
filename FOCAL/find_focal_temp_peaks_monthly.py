@@ -7,7 +7,7 @@
 #                                                                                           #
 #               author: t. isobe (tisobe@cfa.harvard.edu)                                   #
 #                                                                                           #
-#               last update: Feb 04, 2016                                                   #
+#               last update: Mar 03, 2016                                                   #
 #                                                                                           #
 #############################################################################################
 
@@ -110,7 +110,7 @@ def find_focal_temp_peaks(year='', month=''):
 #-- make a backup before adding this month's data to full data set
 #
     bdata = fdata + '~'
-    cmd = 'cp ' = fdata + ' ' + bdata
+    cmd = 'cp ' + fdata + ' ' + bdata
     os.system(cmd)
 
     cmd = 'cat ' + tdata + '>> ' +  fdata 
