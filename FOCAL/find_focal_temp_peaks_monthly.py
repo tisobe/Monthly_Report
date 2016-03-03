@@ -241,8 +241,11 @@ def find_focal_temp_list(start, stop):
                 ctemp = re.split('\s+', line)
                 dtemp = re.split(':', ctemp[1])
 
-                yday  = int(float(dtemp[0]))
-                htime = int(float(dtemp[1]))
+                try:
+                    yday  = int(float(dtemp[0]))
+                    htime = int(float(dtemp[1]))
+                except:
+                    continue
 
                 ttime = convertto1998sec(year, yday) + htime
                 focal = ctemp[2]
