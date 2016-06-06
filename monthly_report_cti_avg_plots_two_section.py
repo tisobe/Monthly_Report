@@ -12,7 +12,7 @@
 #                                                                                                           #
 #           author: t. isobe (tisobe@cfa.harvard.edu)                                                       #
 #                                                                                                           #
-#           Last Update: Jun 02, 2014                                                                       #
+#           Last Update: Jun 06, 2016                                                                       #
 #                                                                                                           #
 #############################################################################################################
 
@@ -84,7 +84,7 @@ def monthly_report_cti_avg_plots():
 #--- set a few plotting related values
 #
     xname = 'Time (Year)'
-    yname = 'Mean CTI'
+    yname = 'Mean CTI (S/I * 10**4)'
 #
 #--- extract data for imaging
 #
@@ -94,7 +94,7 @@ def monthly_report_cti_avg_plots():
     xmax = int(max(xSets[0])) +1
 
     ymin  = 1.0
-    ymax  = 3.0
+    ymax  = 4.0
     yMinSets = []
     yMaxSets = []
     for ent in ySets:
@@ -114,7 +114,7 @@ def monthly_report_cti_avg_plots():
 #
 
     ymin  = 1.0
-    ymax  = 3.0
+    ymax  = 4.0
     yMinSets = []
     yMaxSets = []
     for ent in ySets:
@@ -132,7 +132,7 @@ def monthly_report_cti_avg_plots():
 #
 
     ymin  = 0.0
-    ymax  = 1.0
+    ymax  = 2.0
     yMinSets = []
     yMaxSets = []
     for ent in ySets:
@@ -142,7 +142,7 @@ def monthly_report_cti_avg_plots():
 
     [xSets, ySets, eSets] = get_data(back_ccds,  'back')
     entLabels = ['CCD5', 'CCD7']
-    plotPanel(xmin, xmax, yMinSets, yMaxSets, xSets, ySets, eSets, xname, yname, entLabels, 2012.0)
+    plotPanel(xmin, xmax, yMinSets, yMaxSets, xSets, ySets, eSets, xname, yname, entLabels, 2014.5)
     cmd = 'mv out.png ./Plots/cti_avg_acis_bi.png'
 #    cmd = 'mv out.png ./cti_avg_acis_bi.png'
     os.system(cmd)
