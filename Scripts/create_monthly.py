@@ -6,7 +6,7 @@
 #                                                                                       #
 #           author: t. isobe (tisobe@cfa.harvard.edu)                                   #
 #                                                                                       #
-#           last update: Nov 10, 2016                                                   #
+#           last update: Jan 03, 2017                                                   #
 #                                                                                       #
 #########################################################################################
 
@@ -74,6 +74,7 @@ def create_monthly(year='', mon=''):
         if mon < 1:
             mon   = 12
             year -= 1
+            lyear = str(year)                           #--- '2016'
 
     cmon   = str(mon)
     if mon < 10:
