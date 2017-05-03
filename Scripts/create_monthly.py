@@ -6,7 +6,7 @@
 #                                                                                       #
 #           author: t. isobe (tisobe@cfa.harvard.edu)                                   #
 #                                                                                       #
-#           last update: Jan 03, 2017                                                   #
+#           last update: May 03, 2017                                                   #
 #                                                                                       #
 #########################################################################################
 
@@ -268,7 +268,7 @@ def create_monthly(year='', mon=''):
         os.system(cmd)
         cmd = "cp /data/mta_www/mta_grat/EdE/leg_all.gif  " + odir
         os.system(cmd)
-        cmd = "cp /data/mta_www/mta_sim_twist/Plots/twist_plot.gif " + odir
+        cmd = "cp /data/mta_www/mta_sim_twist/Plots/twist_plot.png " + odir
         os.system(cmd)
 
         file = '/data/mta/Script/Month/Scripts/Templates/MONTHLY4.html'
@@ -291,13 +291,13 @@ def create_monthly(year='', mon=''):
         file = '/data/mta/Script/Month/Scripts/Templates/MONTHLY5.html'
 
     elif mon == 6 or mon == 12:
-        cmd = "cp /data/mta_www/mta_sim_twist/Plots/I-1.gif   " + odir
+        cmd = "cp /data/mta_www/mta_sim_twist/Plots/I-1.png   " + odir
         os.system(cmd)
-        cmd = "cp /data/mta_www/mta_sim_twist/Plots/S-2.gif   " + odir
+        cmd = "cp /data/mta_www/mta_sim_twist/Plots/S-2.png   " + odir
         os.system(cmd)
-        cmd = "cp /data/mta_www/mta_sim_twist/Plots/H-I-2.gif " + odir
+        cmd = "cp /data/mta_www/mta_sim_twist/Plots/H-I-2.png " + odir
         os.system(cmd)
-        cmd = "cp /data/mta_www/mta_sim_twist/Plots/H-S-2.gif " + odir
+        cmd = "cp /data/mta_www/mta_sim_twist/Plots/H-S-2.png " + odir
         os.system(cmd)
 
         file = '/data/mta/Script/Month/Scripts/Templates/MONTHLY6.html'
